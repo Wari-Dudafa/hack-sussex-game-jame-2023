@@ -6,20 +6,27 @@ public class EnemyMovement : MonoBehaviour
 {
     public int speed;
     public Transform player;
+    private Rigidbody2D rb;
 
+    private Vector2 targetPos;
+    private Vector2 direction;
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GoToPlayer();
     }
 
     void GoToPlayer()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, player.position, step);
+        targetPos = player.position;
+        direction = targetPos - rb.position;
+
+        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
 }
+
