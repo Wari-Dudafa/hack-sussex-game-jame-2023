@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         gunTranform.rotation = Quaternion.Euler(0, 0, angle);
 
-        updateSpriteDirection();
+        UpdateSpriteDirection();
     }
 
     void MovePlayer()
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         playerSpriteTransform.localScale = newScale;
     }
 
-    void updateSpriteDirection()
+    void UpdateSpriteDirection()
     {
         if (mousePos.x < 0 && isFacingRight)
         {

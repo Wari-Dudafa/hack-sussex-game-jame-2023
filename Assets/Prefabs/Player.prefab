@@ -51,7 +51,7 @@ MonoBehaviour:
   playerTransform: {fileID: 9004477453816135082}
   playerSpriteTransform: {fileID: 8223171310678663876}
   playerInput: {fileID: 2377150409786586066}
-  speed: 0
+  speed: 4
   isFacingRight: 1
 --- !u!114 &2377150409786586066
 MonoBehaviour:
