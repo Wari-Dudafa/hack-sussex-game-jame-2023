@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2027823511012126784}
   - component: {fileID: 1785818769855152894}
   - component: {fileID: 8685949319390020943}
+  - component: {fileID: 4966556576247005414}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1118555731268550392}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24539042, y: -2.82, z: -0.19485763}
+  m_LocalPosition: {x: -0.24539042, y: -2.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7b99f46ff8cf046a40c9300451f705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  player: {fileID: 0}
+  speed: 1
+  player: {fileID: 9004477453816135082, guid: 7064a846aa14f3b45910b50ab3dc9295, type: 3}
+
 --- !u!60 &8685949319390020943
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -99,6 +101,33 @@ PolygonCollider2D:
       - {x: 0.2931078, y: -0.49143922}
       - {x: 0.5599963, y: 0.009611785}
   m_UseDelaunayMesh: 0
+--- !u!50 &4966556576247005414
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118555731268550392}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7651303252636787381
 GameObject:
   m_ObjectHideFlags: 0

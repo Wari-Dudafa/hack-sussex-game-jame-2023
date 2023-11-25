@@ -13,18 +13,28 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 objectPos;
     public PlayerInput playerInput;
+    private Rigidbody2D rb;
     private float angle;
 
     public float speed;
 
     public bool isFacingRight;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         MovePlayer();
-
         UpdateGunPosition();
 
+    }
+
+    void FixedUpdate()
+    {
+        MovePlayer();
     }
 
     void UpdateGunPosition()
@@ -38,12 +48,13 @@ public class PlayerMovement : MonoBehaviour
         gunTranform.rotation = Quaternion.Euler(0, 0, angle);
 
         UpdateSpriteDirection();
+
     }
 
     void MovePlayer()
     {
-        Vector2 direction = playerInput.PlayerDirection() * speed;
-        transform.Translate(direction * Time.deltaTime, Space.World);
+        Vector2 direction = playerInput.PlayerDirection();
+        rb.MovePosition(rb.position + direction  * speed * Time.deltaTime);
     }
 
     public float GetAngle()
