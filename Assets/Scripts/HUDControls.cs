@@ -12,18 +12,19 @@ public class HUDControls : MonoBehaviour
 
     void Start()
     {
+        inputScript = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
+        keysDict = new Dictionary<string, KeyCode>();
         updateKeys();
     }
 
-    void Update()
-    {
-    }
+    void Update() { }
 
     public void updateKeys()
     {
         keysDict = inputScript.getKeyBinds();
         displayKeys();
     }
+
     void displayKeys()
     {
         up.text = keysDict["up"].ToString();
@@ -33,4 +34,3 @@ public class HUDControls : MonoBehaviour
         fire.text = keysDict["fire"].ToString();
     }
 }
-
