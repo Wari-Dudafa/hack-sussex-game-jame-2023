@@ -70,7 +70,7 @@ MonoBehaviour:
   left: 0
   right: 0
   fire: 0
-  maxTimesUsed: 1000
+  lengthOfTimeUsed: 1000
 --- !u!60 &2520351779823999853
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -300,6 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3963095556436801865}
+  - component: {fileID: 1989302822573557382}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -323,3 +324,16 @@ Transform:
   - {fileID: 7151124956190480669}
   m_Father: {fileID: 9004477453816135082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989302822573557382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412129517981373995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c587156787fd33a48a6dc7a38c534917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1239731064656001792, guid: 934f92eaa16701a44aba713d1f567d78, type: 3}
