@@ -125,7 +125,7 @@ public class PlayerInput : MonoBehaviour
         // key pressed
         currentKeys[key] += 1;
 
-        if (currentKeys[key] > lengthOfTimeUsed)
+        if (currentKeys[key] > 999999999)
         {
             currentKeys.Remove(key);
             keysLeft -= 1;

@@ -7,13 +7,20 @@ public class Bullet : MonoBehaviour
     public Vector2 direction;
     public Vector2 mousePos;
 
+
+    public PlayerMovement playerMovement;
+    bool snap;
+    float speedMoulus = 3;
+    private Vector2 originalPosition;
     bool snap;
     float speedMoulus = 3;
 
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Gun");
+        GameObject player = GameObject.FindWithTag("Player");
         transform.position = player.transform.position;
+        originalPosition = transform.position;
+        Invoke("DisableRendererAndDestroy", 3f);
     }
 
     void Update()
@@ -31,12 +38,28 @@ public class Bullet : MonoBehaviour
         mousePos = Input.mousePosition;
         snap = true;
 
-        float x = mousePos.x - 590;
-        float y = mousePos.y - 280;
+        float x = mousePos.x - 600 - originalPosition.x;
+        float y = mousePos.y - 280 - originalPosition.y;
         float modulus = Mathf.Sqrt(x * x + y * y);
         float diff = modulus / speedMoulus;
 
         direction.x = x / diff;
         direction.y = y / diff;
+    }
+
+    void DisableRendererAndDestroy()
+    {
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.enabled = false;
+        }
+        Destroy(gameObject, 0.5f);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        Destroy(gameObject);
     }
 }
