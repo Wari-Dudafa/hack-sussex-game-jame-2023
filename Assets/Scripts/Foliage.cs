@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class Foliage : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+    public bool shouldFlip;
+
     void Start()
     {
-        // Flip sprite after a coin toss
+        shouldFlip = (Random.Range(0, 2) == 0);
+        sprite = GetComponent<SpriteRenderer>();
+
+        if (shouldFlip)
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
+        }
     }
 }
