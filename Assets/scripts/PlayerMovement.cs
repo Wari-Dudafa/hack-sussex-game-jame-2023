@@ -8,10 +8,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 objectPos;
     private float angle;
+    public GameObject bullet;
+    /*private int seconds = 1;
+    private int miliseconds = 500;
+    TimeSpan clock = new TimeSpan(0, 0, 0, seconds, miliseconds)*/
+    
 
     void Update()
     {
         UpdateGunPosition();
+        shot();
     }
 
     void UpdateGunPosition()
@@ -25,5 +31,8 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    
+    void shot()
+    {
+        Instantiate(bullet);
+    }
 }
