@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HUD-Up
+  - HUD-Down
+  - HUD-Left
+  - HUD-Right
+  - HUD-Fire
   layers:
   - Default
   - TransparentFX

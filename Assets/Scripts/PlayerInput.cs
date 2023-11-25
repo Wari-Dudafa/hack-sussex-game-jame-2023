@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+
+    public HUDControls HUDControlsScript;
     private List<KeyCode> availableKeys;
     public Dictionary<KeyCode, int> currentKeys;
     private int keysLeft;
@@ -139,10 +141,25 @@ public class PlayerInput : MonoBehaviour
                 availableKeys.Remove(key);
 
                 currentKeys.Add(key, 0);
-
+                HUDControlsScript.updateKeys();
                 Debug.Log("New key = " + key);
+
             }
         }
         return key;
+    }
+
+    public Dictionary<string, KeyCode> getKeyBinds()
+    {
+        Dictionary<string, KeyCode> temp = new Dictionary<string, KeyCode>() 
+        { 
+            {"up", up },
+            {"down", down },
+            {"left", left },
+            {"right", right },
+            {"fire", fire },
+        };
+
+        return temp;
     }
 }
