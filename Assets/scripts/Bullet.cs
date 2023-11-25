@@ -7,41 +7,20 @@ public class Bullet : MonoBehaviour
     public Vector2 direction;
     public Vector2 mousePos;
 
+    private Rigidbody2D rb;
+
+    public int bulletSpeed;
+
     public PlayerMovement playerMovement;
-    bool snap;
-    float speedMoulus = 3;
     private Vector2 originalPosition;
 
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        transform.position = player.transform.position;
-        originalPosition = transform.position;
-        Invoke("DisableRendererAndDestroy", 3f);
-    }
+        GameObject bulletsMoveTo = GameObject.FindWithTag("BulletsMoveTo");
+        rb = GetComponent<Rigidbody2D>();
 
-    void Update()
-    {
-        if (!snap)
-        {
-            GetDirection();
-        }
-
-        transform.Translate(direction * Time.deltaTime);
-    }
-
-    void GetDirection()
-    {
-        mousePos = Input.mousePosition;
-        snap = true;
-
-        float x = mousePos.x - 600 - originalPosition.x;
-        float y = mousePos.y - 280 - originalPosition.y;
-        float modulus = Mathf.Sqrt(x * x + y * y);
-        float diff = modulus / speedMoulus;
-
-        direction.x = x / diff;
-        direction.y = y / diff;
+        rb.AddForce(bulletsMoveTo.transform.position * bulletSpeed);
+        Invoke(nameof(DisableRendererAndDestroy), 3f);
     }
 
     void DisableRendererAndDestroy()

@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     public Transform gunTranform;
+    public Transform bulletsMoveTo;
     public Transform playerTransform;
     public Transform playerSpriteTransform;
     private Vector3 mousePos;
@@ -53,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
         mousePos.y = mousePos.y - objectPos.y;
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         gunTranform.rotation = Quaternion.Euler(0, 0, angle);
+
+        bulletsMoveTo.transform.rotation = gunTranform.rotation;
 
         UpdateSpriteDirection();
     }
