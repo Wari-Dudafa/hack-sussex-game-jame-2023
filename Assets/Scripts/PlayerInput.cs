@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.IO.LowLevel.Unsafe;
-using Unity.PlasticSCM.Editor.WebApi;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -11,15 +8,15 @@ public class PlayerInput : MonoBehaviour
     private List<KeyCode> availableKeys;
     public Dictionary<KeyCode, int> currentKeys;
     private int keysLeft;
-
+    public Vector2 playerDirection;
     public KeyCode up;
     public KeyCode down;
     public KeyCode left;
     public KeyCode right;
     public KeyCode fire;
 
-    public int maxTimesUsed = 5;
-    // Start is called before the first frame update
+    public int lengthOfTimeUsed;
+
     void Start()
     {
         availableKeys = new List<KeyCode>()
@@ -56,47 +53,77 @@ public class PlayerInput : MonoBehaviour
         };
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
     }
 
-    void GetInput()
+    public void GetInput()
     {
-        if (Input.GetKeyDown(up))
+        Vector2 tempVector = new Vector2(0, 0);
+
+        if (Input.GetKey(up))
         {
-            up = handleInput(up);
+            up = HandleInput(up);
+            tempVector = new Vector2(tempVector.x, 1);
+        }
+        if (Input.GetKeyUp(up))
+        {
+            up = HandleInput(up);
+            tempVector = new Vector2(tempVector.x, 0);
         }
 
-        if (Input.GetKeyDown(down))
+        if (Input.GetKey(down))
         {
-            down = handleInput(down);
+            down = HandleInput(down);
+            tempVector = new Vector2(tempVector.x, -1);
+        }
+        if (Input.GetKeyUp(down))
+        {
+            down = HandleInput(down);
+            tempVector = new Vector2(tempVector.x, 0);
         }
 
-        if (Input.GetKeyDown(left))
+        if (Input.GetKey(left))
         {
-            left = handleInput(left);
+            left = HandleInput(left);
+            tempVector = new Vector2(-1, tempVector.y);
+        }
+        if (Input.GetKeyUp(left))
+        {
+            left = HandleInput(left);
+            tempVector = new Vector2(0, tempVector.y);
+        }
+        if (Input.GetKey(right))
+        {
+            right = HandleInput(right);
+            tempVector = new Vector2(1, tempVector.y);
+        }
+        if (Input.GetKeyUp(right))
+        {
+            right = HandleInput(right);
+            tempVector = new Vector2(0, tempVector.y);
         }
 
-        if (Input.GetKeyDown(right))
+        if (Input.GetKey(fire))
         {
-            right = handleInput(right);
+            fire = HandleInput(fire);
         }
 
-        if (Input.GetKeyDown(fire))
-        {
-            fire = handleInput(fire);
-        }
+        this.playerDirection = tempVector;
     }
 
-    KeyCode handleInput(KeyCode key)
+    public Vector2 PlayerDirection()
     {
+        return this.playerDirection;
+    }
 
+    KeyCode HandleInput(KeyCode key)
+    {
         Debug.Log("Key pressed" + key);
         currentKeys[key] += 1;
 
-        if (currentKeys[key] > maxTimesUsed)
+        if (currentKeys[key] > lengthOfTimeUsed)
         {
             currentKeys.Remove(key);
             keysLeft -= 1;
@@ -108,7 +135,7 @@ public class PlayerInput : MonoBehaviour
             }
             else
             {
-                key = availableKeys.ToArray<KeyCode>()[Random.Range(0, keysLeft - 1)];
+                key = availableKeys.ToArray<KeyCode>()[UnityEngine.Random.Range(0, keysLeft - 1)];
                 availableKeys.Remove(key);
 
                 currentKeys.Add(key, 0);

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerTransform;
     private Vector3 mousePos;
     private Vector3 objectPos;
+    public PlayerInput playerInput;
     private float angle;
     public float speed;
 
@@ -19,21 +20,19 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateGunPosition()
     {
-        mousePos = Input.mousePosition;
         mousePos.z = -20;
+        mousePos = Input.mousePosition;
         objectPos = Camera.main.WorldToScreenPoint(gunTranform.position);
         mousePos.x = mousePos.x - objectPos.x;
         mousePos.y = mousePos.y - objectPos.y;
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        gunTranform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     void MovePlayer()
     {
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        Vector2 direction = new Vector2(horizontal, vertical) * speed * Time.deltaTime;
+        Vector2 direction = playerInput.PlayerDirection() * speed;
 
-        playerTransform.Translate(direction, Space.World);
+        transform.Translate(direction * Time.deltaTime, Space.World);
     }
-}
+};
