@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInput playerInput;
     private Rigidbody2D rb;
     private float angle;
+    public Health health;
 
     public float speed;
 
@@ -23,18 +24,23 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
     }
 
     void Update()
     {
-        MovePlayer();
-        UpdateGunPosition();
-
+        if (health.IsAlive())
+        {
+            UpdateGunPosition();
+        }
     }
 
     void FixedUpdate()
     {
-        MovePlayer();
+        if (health.IsAlive())
+        {
+            MovePlayer();
+        }
     }
 
     void UpdateGunPosition()
@@ -48,13 +54,12 @@ public class PlayerMovement : MonoBehaviour
         gunTranform.rotation = Quaternion.Euler(0, 0, angle);
 
         UpdateSpriteDirection();
-
     }
 
     void MovePlayer()
     {
         Vector2 direction = playerInput.PlayerDirection();
-        rb.MovePosition(rb.position + direction  * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
 
     public float GetAngle()

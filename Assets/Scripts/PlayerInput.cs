@@ -120,7 +120,7 @@ public class PlayerInput : MonoBehaviour
 
     KeyCode HandleInput(KeyCode key)
     {
-        Debug.Log("Key pressed" + key);
+        // key pressed
         currentKeys[key] += 1;
 
         if (currentKeys[key] > lengthOfTimeUsed)
@@ -130,17 +130,16 @@ public class PlayerInput : MonoBehaviour
 
             if (keysLeft <= 0)
             {
+                // No more keys available
                 key = KeyCode.None;
-                Debug.Log("No more keys available!");
             }
             else
             {
                 key = availableKeys.ToArray<KeyCode>()[UnityEngine.Random.Range(0, keysLeft - 1)];
                 availableKeys.Remove(key);
 
+                // New key
                 currentKeys.Add(key, 0);
-
-                Debug.Log("New key = " + key);
             }
         }
         return key;

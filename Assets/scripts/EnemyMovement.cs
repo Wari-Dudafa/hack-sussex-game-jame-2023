@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2 targetPos;
     private Vector2 direction;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -29,4 +30,3 @@ public class EnemyMovement : MonoBehaviour
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
 }
-
