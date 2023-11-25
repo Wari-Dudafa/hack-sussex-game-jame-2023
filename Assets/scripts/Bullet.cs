@@ -42,8 +42,6 @@ public class Bullet : MonoBehaviour
         float modulus = Mathf.Sqrt(x * x + y * y);
         float diff = modulus / speedMoulus;
 
-        Debug.Log("so object is moving on " + x + " and " + y);
-
         direction.x = x / diff;
         direction.y = y / diff;
 

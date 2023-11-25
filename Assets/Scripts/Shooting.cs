@@ -8,11 +8,15 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        Shot();
+        Shoot();
     }
 
-    void Shot()
+    void Shoot()
     {
-        Instantiate(bullet);
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            Instantiate(bullet, transform);
+
+        }
     }
 }
