@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int speed;
     public Transform gunTranform;
+    public Transform playerTransform;
     private Vector3 mousePos;
     private Vector3 objectPos;
     private float angle;
 
     void Update()
     {
+        MovePlayer();
         UpdateGunPosition();
     }
 
@@ -23,5 +27,14 @@ public class PlayerMovement : MonoBehaviour
         mousePos.y = mousePos.y - objectPos.y;
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    void MovePlayer()
+    {
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        Vector2 direction = new Vector2(horizontal, vertical) * speed * Time.deltaTime;
+
+        playerTransform.Translate(direction, Space.World);
     }
 }
