@@ -7,11 +7,13 @@ public class Bullet : MonoBehaviour
     public Vector2 direction;
     public Vector2 mousePos;
 
+
     public PlayerMovement playerMovement;
     bool snap;
     float speedMoulus = 3;
     private Vector2 originalPosition;
-    //int dmg = 10;
+    bool snap;
+    float speedMoulus = 3;
 
     void Start()
     {
@@ -27,8 +29,6 @@ public class Bullet : MonoBehaviour
         {
             GetDirection();
         }
-
-        
 
         transform.Translate(direction * Time.deltaTime);
     }

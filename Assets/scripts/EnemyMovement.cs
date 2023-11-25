@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     public Transform player;
     private Rigidbody2D rb;
 
     private Vector2 targetPos;
     private Vector2 direction;
+    public SpriteRenderer spriteRenderer;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -19,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         GoToPlayer();
+        FlipToPlayer();
     }
 
     void GoToPlayer()
@@ -28,5 +31,9 @@ public class EnemyMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
-}
 
+    void FlipToPlayer()
+    {
+        spriteRenderer.flipX = player.position.x > transform.position.x;
+    }
+}

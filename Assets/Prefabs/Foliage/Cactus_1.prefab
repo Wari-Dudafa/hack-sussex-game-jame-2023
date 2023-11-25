@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d80f476469806c4b9d8d0309b3d161a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  shouldFlip: 0
 --- !u!212 &4478395562192839393
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,6 +132,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.32, y: 0.32}
+  m_Offset: {x: -0.009050342, y: -0.1120848}
+  m_Size: {x: 0.07912215, y: 0.09583042}
   m_Direction: 0

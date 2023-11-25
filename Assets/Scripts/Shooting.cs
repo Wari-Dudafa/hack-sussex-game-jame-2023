@@ -12,12 +12,12 @@ public class Shooting : MonoBehaviour
     {
         if (timer % shootspeed == 0)
         {
-            shot();
+            Shoot();
         }
         timer++;
     }
 
-    void shot()
+    void Shoot()
     {
         Instantiate(bullet);
     }
