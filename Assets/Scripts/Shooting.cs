@@ -5,18 +5,20 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
+    private int timer = 0;
+    private int shootspeed = 400;
 
     void Update()
     {
-        Shoot();
+        if (timer % shootspeed == 0)
+        {
+            Shoot();
+        }
+        timer++;
     }
 
     void Shoot()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            Instantiate(bullet, transform);
-
-        }
+        Instantiate(bullet);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 81706632171698143}
   - component: {fileID: -2667036788988366664}
   - component: {fileID: 5143643374109323820}
-  - component: {fileID: 1630094771233575501}
+  - component: {fileID: 1001346709415238897}
   m_Layer: 0
   m_Name: Rock_3
   m_TagString: Untagged
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d80f476469806c4b9d8d0309b3d161a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  shouldFlip: 0
 --- !u!212 &5143643374109323820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,8 +100,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1630094771233575501
-CapsuleCollider2D:
+--- !u!61 &1001346709415238897
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +132,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.32, y: 0.32}
-  m_Direction: 0
+  m_Offset: {x: 0.0069639124, y: -0.13788548}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25314647, y: 0.04422903}
+  m_EdgeRadius: 0

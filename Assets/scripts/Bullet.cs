@@ -7,19 +7,13 @@ public class Bullet : MonoBehaviour
     public Vector2 direction;
     public Vector2 mousePos;
 
-    public PlayerMovement playerMovement;
     bool snap;
-    int speedMoulus;
-    int xPos;
-    int yPos;
+    float speedMoulus = 3;
 
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-
-        playerMovement = player.GetComponent<PlayerMovement>();
-
-        transform.rotation = Quaternion.Euler(0, 0, playerMovement.GetAngle());
+        GameObject player = GameObject.FindWithTag("Gun");
+        transform.position = player.transform.position;
     }
 
     void Update()
@@ -37,13 +31,10 @@ public class Bullet : MonoBehaviour
         mousePos = Input.mousePosition;
         snap = true;
 
-        float x = mousePos.x - 580 - xPos;
-        float y = mousePos.y - 270 - yPos;
+        float x = mousePos.x - 590;
+        float y = mousePos.y - 280;
         float modulus = Mathf.Sqrt(x * x + y * y);
         float diff = modulus / speedMoulus;
-
-        direction.x = x / diff;
-        direction.y = y / diff;
 
         direction.x = x / diff;
         direction.y = y / diff;

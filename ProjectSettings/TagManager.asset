@@ -9,6 +9,7 @@ TagManager:
   - HUD-Left
   - HUD-Right
   - HUD-Fire
+
   layers:
   - Default
   - TransparentFX
