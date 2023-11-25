@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class HUDControls : MonoBehaviour
 {
-    public Text up, down, left, right, fire;
+    public Text up,
+        down,
+        left,
+        right,
+        fire;
     public PlayerInput inputScript;
 
     private Dictionary<string, KeyCode> keysDict;
