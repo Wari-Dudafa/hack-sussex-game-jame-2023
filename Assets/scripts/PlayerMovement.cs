@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public int speed;
     public Transform gunTranform;
     public Transform playerTransform;
     private Vector3 mousePos;
     private Vector3 objectPos;
     private float angle;
+    public float speed;
 
     void Update()
     {
