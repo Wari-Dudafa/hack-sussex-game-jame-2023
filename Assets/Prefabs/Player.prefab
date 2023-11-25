@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9004477453816135082}
   - component: {fileID: 349437519103720608}
+  - component: {fileID: 4968894043907330324}
   - component: {fileID: 2520351779823999853}
   m_Layer: 0
   m_Name: Player
@@ -49,10 +50,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunTranform: {fileID: 3963095556436801865}
   playerTransform: {fileID: 9004477453816135082}
-  playerSpriteTransform: {fileID: 8223171310678663876}
-  speed: 4
-  isFacingRight: 1
---- !u!60 &2520351779823999853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621340226889388498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd16237b105ab0448b1940a0c546b322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDirection: {x: 0, y: 0}
+  up: 0
+  down: 0
+  left: 0
+  right: 0
+  fire: 0
+  maxTimesUsed: 1000
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,8 +311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8412129517981373995}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0030529872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
