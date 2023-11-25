@@ -5,34 +5,34 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Transform gunTranform;
+    public Transform playerTransform;
     private Vector3 mousePos;
     private Vector3 objectPos;
+    public PlayerInput playerInput;
     private float angle;
-    public GameObject bullet;
-    /*private int seconds = 1;
-    private int miliseconds = 500;
-    TimeSpan clock = new TimeSpan(0, 0, 0, seconds, miliseconds)*/
-    
+    public float speed;
 
     void Update()
     {
+        MovePlayer();
         UpdateGunPosition();
-        shot();
     }
 
     void UpdateGunPosition()
     {
-        mousePos = Input.mousePosition;
         mousePos.z = -20;
+        mousePos = Input.mousePosition;
         objectPos = Camera.main.WorldToScreenPoint(gunTranform.position);
         mousePos.x = mousePos.x - objectPos.x;
         mousePos.y = mousePos.y - objectPos.y;
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        gunTranform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    void shot()
+    void MovePlayer()
     {
-        Instantiate(bullet);
+        Vector2 direction = playerInput.PlayerDirection() * speed;
+
+        transform.Translate(direction * Time.deltaTime, Space.World);
     }
-}
+};
