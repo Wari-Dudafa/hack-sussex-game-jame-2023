@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        UnityEngine.Cursor.visible = false;
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
     }
