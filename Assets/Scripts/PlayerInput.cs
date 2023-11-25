@@ -9,16 +9,16 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private List<KeyCode> availableKeys;
-    private int keysLeft;
-
     public Dictionary<KeyCode, int> currentKeys;
+    private int keysLeft;
 
     public KeyCode up;
     public KeyCode down;
     public KeyCode left;
     public KeyCode right;
-
     public KeyCode fire;
+
+    public int maxTimesUsed = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,7 +96,7 @@ public class PlayerInput : MonoBehaviour
         Debug.Log("Key pressed" + key);
         currentKeys[key] += 1;
 
-        if (currentKeys[key] > 2)
+        if (currentKeys[key] > maxTimesUsed)
         {
             currentKeys.Remove(key);
             keysLeft -= 1;
