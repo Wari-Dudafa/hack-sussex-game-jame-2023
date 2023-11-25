@@ -364,7 +364,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunTranform: {fileID: 1188079777}
-  bullet: {fileID: 1239731064656001792, guid: 934f92eaa16701a44aba713d1f567d78, type: 3}
+  playerTransform: {fileID: 0}
+  playerSpriteTransform: {fileID: 0}
+  playerInput: {fileID: 0}
+  speed: 5
+  isFacingRight: 1
 --- !u!4 &674853141
 Transform:
   m_ObjectHideFlags: 0
@@ -479,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 1188079776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0030529872}
+  m_LocalPosition: {x: 0.05, y: -0.02, z: -0.0030529872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -680,11 +684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905071653407953048, guid: 934f92eaa16701a44aba713d1f567d78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0652
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1905071653407953048, guid: 934f92eaa16701a44aba713d1f567d78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8559
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1905071653407953048, guid: 934f92eaa16701a44aba713d1f567d78, type: 3}
       propertyPath: m_LocalPosition.z

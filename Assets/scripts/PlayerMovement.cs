@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovePlayer();
+
         UpdateGunPosition();
+
     }
 
     void UpdateGunPosition()
@@ -68,5 +70,10 @@ public class PlayerMovement : MonoBehaviour
             FlipSprite();
             isFacingRight = true;
         }
+    }
+
+    public Vector2 getPos()
+    {
+        return transform.position;
     }
 };
