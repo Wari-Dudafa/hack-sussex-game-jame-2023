@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public Transform player;
     private Rigidbody2D rb;
+    public bool flip = false;
     private ScoreManager scoreManager;
 
     private Vector2 targetPos;
@@ -48,6 +49,13 @@ public class EnemyMovement : MonoBehaviour
 
     void FlipToPlayer()
     {
-        spriteRenderer.flipX = player.position.x > transform.position.x;
+        if (!flip)
+        {
+            spriteRenderer.flipX = player.position.x > transform.position.x;
+        }
+        else
+        {
+            spriteRenderer.flipX = !(player.position.x > transform.position.x);
+        }
     }
 }
