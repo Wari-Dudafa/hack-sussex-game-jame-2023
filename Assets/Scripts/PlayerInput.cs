@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public static PlayerInput Instance;
+
     public HUDControls HUDControlsScript;
     private List<KeyCode> availableKeys;
     public Dictionary<KeyCode, int> currentKeys;
@@ -18,6 +21,20 @@ public class PlayerInput : MonoBehaviour
 
     public int lengthOfTimeUsed;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Instance.gameObject.transform.position = Vector3.zero;
+            Instance.gameObject.GetComponent<Health>().regen();
+            Instance.gameObject.GetComponent<Health>().healthBarGameObject.SetActive(false);
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         availableKeys = new List<KeyCode>()
@@ -34,6 +51,17 @@ public class PlayerInput : MonoBehaviour
             KeyCode.F,
             KeyCode.G,
             KeyCode.H,
+            KeyCode.J,
+            KeyCode.K,
+            KeyCode.L,
+            KeyCode.Z,
+            KeyCode.X,
+            KeyCode.C,
+            KeyCode.V,
+            KeyCode.B,
+            KeyCode.N,
+            KeyCode.M,
+
         };
 
         keysLeft = availableKeys.Count;
@@ -163,5 +191,10 @@ public class PlayerInput : MonoBehaviour
         };
 
         return temp;
+    }
+
+    public int getKeysLeft()
+    {
+        return keysLeft;
     }
 }
