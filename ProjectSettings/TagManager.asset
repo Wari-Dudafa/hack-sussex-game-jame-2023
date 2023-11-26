@@ -13,6 +13,7 @@ TagManager:
   - BulletsMoveTo
   - spawnPoint
   - Bullet
+  - Foliage
   layers:
   - Default
   - TransparentFX

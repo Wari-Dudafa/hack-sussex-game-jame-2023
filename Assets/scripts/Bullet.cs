@@ -13,8 +13,10 @@ public class Bullet : MonoBehaviour
         GameObject bulletsMoveTo = GameObject.FindWithTag("BulletsMoveTo");
         rb = GetComponent<Rigidbody2D>();
 
-        rb.AddForce(bulletsMoveTo.transform.position * bulletSpeed);
-        Invoke(nameof(DisableRendererAndDestroy), 3f);
+        rb.AddForce((bulletsMoveTo.transform.position - transform.position) * bulletSpeed);
+
+        Debug.Log(bulletsMoveTo.transform.position);
+        Invoke(nameof(DisableRendererAndDestroy), 10f);
     }
 
     void DisableRendererAndDestroy()
