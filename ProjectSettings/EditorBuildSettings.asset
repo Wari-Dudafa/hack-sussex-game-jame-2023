@@ -6,11 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-
+    path: Assets/FreddieMenu/MainMenu.unity
+    guid: ea698eea75efe374abdca9a74e0048b3
+  - enabled: 1
+    path: Assets/FreddieMenu/Instructions.unity
+    guid: c904983d67cb7f14683eb9ea5b1f3195
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/sample2.unity
-    guid: 9011903c3dbf1f24c9849c53d3b49b96
-
+    path: Assets/Scenes/Freddie's test.unity
+    guid: b0f2efeb4851279458ee21d5e3fdef46
   m_configObjects: {}
