@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,10 +31,13 @@ public class HUDControls : MonoBehaviour
     public int killCount;
     public int killsToNextLevel;
 
+    private int sceneNum;
+
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && sceneNum == 0)
         {
+            Instance.sceneNum += 1;
             Instance.killCount = 0;
             Destroy(gameObject);
             return;
@@ -45,12 +49,12 @@ public class HUDControls : MonoBehaviour
 
     void Start()
     {
-
         GameObject player = GameObject.FindWithTag("Player");
         inputScript = player.GetComponent<PlayerInput>();
         keysLeftHUD = GameObject.FindWithTag("KeysLeft").GetComponent<Text>();
         killCount = 0;
         killsToNextLevel = 20;
+        sceneNum = 1;
 
         keysDict = new Dictionary<string, KeyCode>();
     }
@@ -60,8 +64,14 @@ public class HUDControls : MonoBehaviour
         updateKeys();
         if (killCount >= killsToNextLevel)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNum);
         }
+    }
+
+    public void RetrnToMainMenu()
+    {
+        sceneNum = 0;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNum);
     }
 
     void updateKeys()
@@ -114,7 +124,6 @@ public class HUDControls : MonoBehaviour
                 }
                 break;
         }
-
     }
 
     public void addScore(int points)
