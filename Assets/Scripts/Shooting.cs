@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
     public Transform gun;
+    public Health playerHealth;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerHealth.IsAlive())
         {
             Shoot();
         }

@@ -27,6 +27,10 @@ public class EnemyMovement : MonoBehaviour
             FlipToPlayer();
             health.UpdateHealthBar();
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void GoToPlayer()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     public int damage;
+    public int enemyShotDamage;
     public Health playerHealth;
+    public Health enemyHealth;
 
     void Start()
     {
@@ -18,6 +20,15 @@ public class EnemyAttack : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerHealth.TakeDamage(damage);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            enemyHealth.TakeDamage(enemyShotDamage);
+            Destroy(collision.gameObject);
         }
     }
 }

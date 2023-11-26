@@ -12,6 +12,7 @@ TagManager:
   - Gun
   - BulletsMoveTo
   - spawnPoint
+  - Bullet
   layers:
   - Default
   - TransparentFX
