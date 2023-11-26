@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,25 +13,22 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 objectPos;
     public PlayerInput playerInput;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private float angle;
     public Health health;
-
     public float speed;
-
     public bool isFacingRight;
 
     private void Start()
     {
         UnityEngine.Cursor.visible = false;
-        rb = GetComponent<Rigidbody2D>();
-        health = GetComponent<Health>();
     }
 
     void Update()
     {
         if (health.IsAlive())
         {
+            health.UpdateHealthBar();
             UpdateGunPosition();
         }
     }

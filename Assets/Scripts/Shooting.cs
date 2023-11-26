@@ -22,7 +22,6 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shoot");
         Instantiate(bullet, gun.position, Quaternion.identity);
     }
 }
