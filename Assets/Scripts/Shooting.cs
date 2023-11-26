@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
     public Transform gun;
     public Health playerHealth;
+    public AudioSource gunshot;
 
     void Start()
     {
@@ -24,5 +25,6 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         Instantiate(bullet, gun.position, Quaternion.identity);
+        gunshot.Play();
     }
 }
