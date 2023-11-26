@@ -32,6 +32,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = 0;
             alive = false;
+            UpdateHealthBar();
         }
     }
 
