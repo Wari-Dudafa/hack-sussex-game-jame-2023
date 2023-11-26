@@ -35,7 +35,6 @@ public class HUDControls : MonoBehaviour
 
     private void Awake()
     {
-        SceneSearch currentScene = SceneManager.GetActiveScene();
         if (Instance != null)
         {
             Instance.sceneNum += 1;
