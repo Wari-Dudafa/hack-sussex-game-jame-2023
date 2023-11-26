@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public bool isFacingRight;
 
-    private void Start()
+    void Start()
     {
         UnityEngine.Cursor.visible = false;
     }

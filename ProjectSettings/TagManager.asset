@@ -11,6 +11,7 @@ TagManager:
   - HUD-Fire
   - Gun
   - BulletsMoveTo
+  - Bullet
   layers:
   - Default
   - TransparentFX

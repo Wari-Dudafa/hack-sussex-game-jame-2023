@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public Slider healthBar;
     public GameObject healthBarGameObject;
 
-    private void Start()
+    void Start()
     {
         alive = true;
         currentHealth = maxHealth;
