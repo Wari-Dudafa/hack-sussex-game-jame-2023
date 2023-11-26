@@ -15,11 +15,13 @@ TagManager:
   - Bullet
   - Foliage
   - Scoreboard
+  - KeysLeft
+  - HUD
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemies
   - Water
   - UI
   - 

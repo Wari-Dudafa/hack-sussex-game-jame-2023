@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
         healthBarGameObject.SetActive(false);
     }
 
+    public void regen()
+    {
+        currentHealth = maxHealth;
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

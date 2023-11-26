@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public Transform player;
     private Rigidbody2D rb;
-    private ScoreManager scoreManager;
+    private HUDControls scoreManager;
 
     private Vector2 targetPos;
     private Vector2 direction;
@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
-        scoreManager = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreManager>();
+        scoreManager = GameObject.FindWithTag("HUD").GetComponent<HUDControls>();
         rb = GetComponent<Rigidbody2D>();
     }
 
