@@ -35,7 +35,8 @@ public class HUDControls : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && sceneNum == 0)
+        SceneSearch currentScene = SceneManager.GetActiveScene();
+        if (Instance != null)
         {
             Instance.sceneNum += 1;
             Instance.killCount = 0;
@@ -66,12 +67,6 @@ public class HUDControls : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNum);
         }
-    }
-
-    public void RetrnToMainMenu()
-    {
-        sceneNum = 0;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNum);
     }
 
     void updateKeys()
