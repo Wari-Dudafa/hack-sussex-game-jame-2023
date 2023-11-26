@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 targetPos;
     private Vector2 direction;
     public SpriteRenderer spriteRenderer;
+    public Health health;
 
     void Start()
     {
@@ -20,8 +21,12 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        GoToPlayer();
-        FlipToPlayer();
+        if (health.IsAlive())
+        {
+            GoToPlayer();
+            FlipToPlayer();
+            health.UpdateHealthBar();
+        }
     }
 
     void GoToPlayer()
