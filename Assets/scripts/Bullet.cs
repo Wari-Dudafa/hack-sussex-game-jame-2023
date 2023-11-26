@@ -13,8 +13,9 @@ public class Bullet : MonoBehaviour
         GameObject bulletsMoveTo = GameObject.FindWithTag("BulletsMoveTo");
         rb = GetComponent<Rigidbody2D>();
 
-        rb.AddForce(bulletsMoveTo.transform.position * bulletSpeed);
-        Invoke(nameof(DisableRendererAndDestroy), 3f);
+        rb.AddForce((bulletsMoveTo.transform.position - transform.position) * bulletSpeed);
+
+        Invoke(nameof(DisableRendererAndDestroy), 10f);
     }
 
     void DisableRendererAndDestroy()
@@ -27,9 +28,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 0.5f);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Foliage"))
+        {
+            // Do nothing
+        }
+        else
         {
             Destroy(gameObject);
         }

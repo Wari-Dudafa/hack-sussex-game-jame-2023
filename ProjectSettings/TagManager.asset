@@ -11,7 +11,10 @@ TagManager:
   - HUD-Fire
   - Gun
   - BulletsMoveTo
+  - spawnPoint
   - Bullet
+  - Foliage
+  - Scoreboard
   layers:
   - Default
   - TransparentFX

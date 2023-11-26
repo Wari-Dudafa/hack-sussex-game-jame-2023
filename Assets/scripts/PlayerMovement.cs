@@ -20,11 +20,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public bool isFacingRight;
 
-    void Start()
-    {
-        UnityEngine.Cursor.visible = false;
-    }
-
     void Update()
     {
         if (health.IsAlive())
