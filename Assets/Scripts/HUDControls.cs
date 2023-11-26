@@ -8,8 +8,7 @@ public class HUDControls : MonoBehaviour
     public Text up,
         down,
         left,
-        right,
-        fire;
+        right;
     public PlayerInput inputScript;
 
     private Dictionary<string, KeyCode> keysDict;
@@ -42,7 +41,6 @@ public class HUDControls : MonoBehaviour
         down.text = keysDict["down"].ToString();
         left.text = keysDict["left"].ToString();
         right.text = keysDict["right"].ToString();
-        fire.text = keysDict["fire"].ToString();
     }
 
     public void keyUpdated(string keyName)
@@ -59,9 +57,6 @@ public class HUDControls : MonoBehaviour
                 //
                 break;
             case "right":
-                //
-                break;
-            case "fire":
                 //
                 break;
         }
