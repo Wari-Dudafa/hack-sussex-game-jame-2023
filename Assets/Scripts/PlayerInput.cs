@@ -28,11 +28,9 @@ public class PlayerInput : MonoBehaviour
             Instance.gameObject.transform.position = Vector3.zero;
             Instance.gameObject.GetComponent<Health>().regen();
             Instance.gameObject.GetComponent<Health>().healthBarGameObject.SetActive(false);
-           
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
