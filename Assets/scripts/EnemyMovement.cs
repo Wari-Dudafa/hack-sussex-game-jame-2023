@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private HUDControls scoreManager;
 
+
     private Vector2 targetPos;
     private Vector2 direction;
     public SpriteRenderer spriteRenderer;
@@ -48,6 +49,13 @@ public class EnemyMovement : MonoBehaviour
 
     void FlipToPlayer()
     {
-        spriteRenderer.flipX = player.position.x > transform.position.x;
+        if (!flip)
+        {
+            spriteRenderer.flipX = player.position.x > transform.position.x;
+        }
+        else
+        {
+            spriteRenderer.flipX = !(player.position.x > transform.position.x);
+        }
     }
 }
