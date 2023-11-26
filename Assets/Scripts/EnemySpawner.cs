@@ -6,9 +6,10 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public GameObject[] spawnPoints;
+    private GameObject[] spawnPoints;
     public int start = 10;
     public int spawnRate = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < start - 1; i++)
         {
             spawnEnemy();
         }
@@ -38,5 +39,4 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy = Instantiate(enemy);
         newEnemy.transform.position = spawnPoints[randomInt].transform.position;
     }
-
 }

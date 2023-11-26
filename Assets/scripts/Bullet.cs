@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour
 
         rb.AddForce((bulletsMoveTo.transform.position - transform.position) * bulletSpeed);
 
-        Debug.Log(bulletsMoveTo.transform.position);
         Invoke(nameof(DisableRendererAndDestroy), 10f);
     }
 

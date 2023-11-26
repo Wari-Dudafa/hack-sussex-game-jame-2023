@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Health health;
 
+    public int score;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -31,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            scoreManager.addScore(20);
+            scoreManager.addScore(score);
             Destroy(gameObject);
         }
     }
@@ -41,7 +43,7 @@ public class EnemyMovement : MonoBehaviour
         targetPos = player.position;
         direction = targetPos - rb.position;
 
-        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + speed * Time.deltaTime * direction);
     }
 
     void FlipToPlayer()
