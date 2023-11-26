@@ -16,14 +16,21 @@ public class HUDControls : MonoBehaviour
 
     void Start()
     {
-        inputScript = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
+
+        GameObject player = GameObject.FindWithTag("Player");
+        inputScript = player.GetComponent<PlayerInput>();
+
         keysDict = new Dictionary<string, KeyCode>();
         updateKeys();
     }
 
-    void Update() { }
+    void Update()
+    {
+        updateKeys();
+    }
 
-    public void updateKeys()
+
+    void updateKeys()
     {
         keysDict = inputScript.getKeyBinds();
         displayKeys();
@@ -36,5 +43,28 @@ public class HUDControls : MonoBehaviour
         left.text = keysDict["left"].ToString();
         right.text = keysDict["right"].ToString();
         fire.text = keysDict["fire"].ToString();
+    }
+
+    public void keyUpdated(string keyName)
+    {
+        switch (keyName)
+        {
+            case "up":
+                //
+                break;
+            case "down":
+                //
+                break;
+            case "left":
+                //
+                break;
+            case "right":
+                //
+                break;
+            case "fire":
+                //
+                break;
+        }
+            
     }
 }

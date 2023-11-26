@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   playerHealth: {fileID: 0}
+  playerRB: {fileID: 0}
+  rb: {fileID: 0}
+  pushStrength: 100
 --- !u!114 &7481716982777447978
 MonoBehaviour:
   m_ObjectHideFlags: 0
