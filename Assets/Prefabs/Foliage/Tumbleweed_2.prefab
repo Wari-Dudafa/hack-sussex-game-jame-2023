@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4380630807782445981}
   m_Layer: 0
   m_Name: Tumbleweed_2
-  m_TagString: Untagged
+  m_TagString: Foliage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d80f476469806c4b9d8d0309b3d161a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  shouldFlip: 0
 --- !u!114 &-7302006937437571363
 MonoBehaviour:
   m_ObjectHideFlags: 0

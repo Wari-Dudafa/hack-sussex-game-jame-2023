@@ -29,7 +29,11 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Foliage"))
+        {
+            // Do nothing
+        }
+        else
         {
             Destroy(gameObject);
         }

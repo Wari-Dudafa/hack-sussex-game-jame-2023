@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4447684657460466039}
   m_Layer: 0
   m_Name: Cactus_4
-  m_TagString: Untagged
+  m_TagString: Foliage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d80f476469806c4b9d8d0309b3d161a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  shouldFlip: 0
 --- !u!212 &4447684657460466039
 SpriteRenderer:
   m_ObjectHideFlags: 0
