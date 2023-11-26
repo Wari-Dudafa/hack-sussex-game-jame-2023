@@ -5,20 +5,23 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
-    private int timer = 0;
-    private int shootspeed = 400;
+    public Transform gun;
+
+    void Start()
+    {
+        gun = GameObject.FindWithTag("Gun").transform;
+    }
 
     void Update()
     {
-        if (timer % shootspeed == 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }
-        timer++;
     }
 
     void Shoot()
     {
-        Instantiate(bullet);
+        Instantiate(bullet, gun.position, Quaternion.identity);
     }
 }

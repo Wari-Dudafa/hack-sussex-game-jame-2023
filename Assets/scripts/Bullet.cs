@@ -4,39 +4,31 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector2 direction;
-    public Vector2 mousePos;
+    private Rigidbody2D rb;
 
-    bool snap;
-    float speedMoulus = 3;
+    public int bulletSpeed;
 
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Gun");
-        transform.position = player.transform.position;
+        GameObject bulletsMoveTo = GameObject.FindWithTag("BulletsMoveTo");
+        rb = GetComponent<Rigidbody2D>();
+
+        rb.AddForce(bulletsMoveTo.transform.position * bulletSpeed);
+        Invoke(nameof(DisableRendererAndDestroy), 3f);
     }
 
-    void Update()
+    void DisableRendererAndDestroy()
     {
-        if (!snap)
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null)
         {
-            GetDirection();
+            renderer.enabled = false;
         }
-
-        transform.Translate(direction * Time.deltaTime);
+        Destroy(gameObject, 0.5f);
     }
 
-    void GetDirection()
+    void OnCollisionEnter(Collision collision)
     {
-        mousePos = Input.mousePosition;
-        snap = true;
-
-        float x = mousePos.x - 590;
-        float y = mousePos.y - 280;
-        float modulus = Mathf.Sqrt(x * x + y * y);
-        float diff = modulus / speedMoulus;
-
-        direction.x = x / diff;
-        direction.y = y / diff;
+        Destroy(gameObject);
     }
 }

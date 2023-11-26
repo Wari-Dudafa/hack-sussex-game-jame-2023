@@ -4,35 +4,32 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Transform gunTranform;
+    public Transform bulletsMoveTo;
     public Transform playerTransform;
     public Transform playerSpriteTransform;
     private Vector3 mousePos;
     private Vector3 objectPos;
     public PlayerInput playerInput;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private float angle;
     public Health health;
-
     public float speed;
-
     public bool isFacingRight;
 
     private void Start()
     {
         UnityEngine.Cursor.visible = false;
-        rb = GetComponent<Rigidbody2D>();
-        health = GetComponent<Health>();
     }
 
     void Update()
     {
         if (health.IsAlive())
         {
+            health.UpdateHealthBar();
             UpdateGunPosition();
         }
     }
@@ -54,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         mousePos.y = mousePos.y - objectPos.y;
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         gunTranform.rotation = Quaternion.Euler(0, 0, angle);
+
+        bulletsMoveTo.transform.rotation = gunTranform.rotation;
 
         UpdateSpriteDirection();
     }

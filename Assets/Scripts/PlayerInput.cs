@@ -125,6 +125,7 @@ public class PlayerInput : MonoBehaviour
         // key pressed
         currentKeys[key] += 1;
 
+
             if (currentKeys[key] > lengthOfTimeUsed)
             {
                 currentKeys.Remove(key);
@@ -144,6 +145,7 @@ public class PlayerInput : MonoBehaviour
                     currentKeys.Add(key, 0);
                     HUDControlsScript.keyUpdated(keyName);
                 }
+
             }
         }
         return key;
@@ -151,13 +153,13 @@ public class PlayerInput : MonoBehaviour
 
     public Dictionary<string, KeyCode> getKeyBinds()
     {
-        Dictionary<string, KeyCode> temp = new Dictionary<string, KeyCode>() 
-        { 
-            {"up", up },
-            {"down", down },
-            {"left", left },
-            {"right", right },
-            {"fire", fire },
+        Dictionary<string, KeyCode> temp = new Dictionary<string, KeyCode>()
+        {
+            { "up", up },
+            { "down", down },
+            { "left", left },
+            { "right", right },
+            { "fire", fire },
         };
 
         return temp;

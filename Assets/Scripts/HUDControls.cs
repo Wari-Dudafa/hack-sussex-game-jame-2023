@@ -5,15 +5,21 @@ using UnityEngine.UI;
 
 public class HUDControls : MonoBehaviour
 {
-    public Text up, down, left, right, fire;
+    public Text up,
+        down,
+        left,
+        right,
+        fire;
     public PlayerInput inputScript;
 
     private Dictionary<string, KeyCode> keysDict;
 
     void Start()
     {
+
         GameObject player = GameObject.FindWithTag("Player");
         inputScript = player.GetComponent<PlayerInput>();
+
         keysDict = new Dictionary<string, KeyCode>();
         updateKeys();
     }
@@ -23,11 +29,13 @@ public class HUDControls : MonoBehaviour
         updateKeys();
     }
 
+
     void updateKeys()
     {
         keysDict = inputScript.getKeyBinds();
         displayKeys();
     }
+
     void displayKeys()
     {
         up.text = keysDict["up"].ToString();
@@ -60,4 +68,3 @@ public class HUDControls : MonoBehaviour
             
     }
 }
-

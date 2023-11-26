@@ -9,12 +9,13 @@ TagManager:
   - HUD-Left
   - HUD-Right
   - HUD-Fire
-
+  - Gun
+  - BulletsMoveTo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - MainGame
+  - 
   - Water
   - UI
   - 

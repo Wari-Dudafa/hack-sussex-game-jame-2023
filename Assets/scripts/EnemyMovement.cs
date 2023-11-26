@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2 targetPos;
     private Vector2 direction;
+    public SpriteRenderer spriteRenderer;
+    public Health health;
 
     void Start()
     {
@@ -19,7 +21,12 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        GoToPlayer();
+        if (health.IsAlive())
+        {
+            GoToPlayer();
+            FlipToPlayer();
+            health.UpdateHealthBar();
+        }
     }
 
     void GoToPlayer()
@@ -28,5 +35,10 @@ public class EnemyMovement : MonoBehaviour
         direction = targetPos - rb.position;
 
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+    }
+
+    void FlipToPlayer()
+    {
+        spriteRenderer.flipX = player.position.x > transform.position.x;
     }
 }
