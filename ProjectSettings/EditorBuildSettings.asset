@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/FreddieMenu/MainMenu.unity
-    guid: ea698eea75efe374abdca9a74e0048b3
-  - enabled: 1
     path: Assets/FreddieMenu/Instructions.unity
     guid: c904983d67cb7f14683eb9ea5b1f3195
   - enabled: 1
