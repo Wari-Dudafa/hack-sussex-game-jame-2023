@@ -28,6 +28,7 @@ public class PlayerInput : MonoBehaviour
             Instance.gameObject.transform.position = Vector3.zero;
             Instance.gameObject.GetComponent<Health>().regen();
             Instance.gameObject.GetComponent<Health>().healthBarGameObject.SetActive(false);
+           
             Destroy(gameObject);
             return;
         }
@@ -37,6 +38,8 @@ public class PlayerInput : MonoBehaviour
     }
     void Start()
     {
+        HUDControlsScript = GameObject.FindWithTag("HUD").GetComponent<HUDControls>();
+
         availableKeys = new List<KeyCode>()
         {
             KeyCode.Q,

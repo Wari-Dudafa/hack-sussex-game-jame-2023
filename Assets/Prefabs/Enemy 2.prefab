@@ -55,6 +55,7 @@ MonoBehaviour:
   player: {fileID: 9004477453816135082, guid: 7064a846aa14f3b45910b50ab3dc9295, type: 3}
   spriteRenderer: {fileID: 1453349498384755921}
   health: {fileID: 7481716982777447978}
+  flip: 0
   score: 50
 --- !u!50 &4966556576247005414
 Rigidbody2D:

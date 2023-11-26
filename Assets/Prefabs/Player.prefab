@@ -187,6 +187,7 @@ MonoBehaviour:
   health: {fileID: 8102221882099155754}
   speed: 4
   isFacingRight: 1
+  deathScreen: {fileID: 249873799273909609, guid: 79e31e702848dc24faea4545aeb2d392, type: 3}
 --- !u!114 &2377150409786586066
 MonoBehaviour:
   m_ObjectHideFlags: 0
