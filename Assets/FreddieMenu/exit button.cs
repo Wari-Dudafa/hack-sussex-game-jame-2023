@@ -7,10 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class ExitButton : MonoBehaviour
 {   
-    public float delayInSeconds = 1f;
+    public float delayInSeconds = 2f;
 
+    void Start() 
+    {
+        
+    }
+    void Update()
+    {
+
+    }
     
-    public void OnStart2Click()
+    public void OnButtonClick()
     {
         StartCoroutine(LoadSceneAfterDelay(delayInSeconds)); 
     }

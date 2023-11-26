@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public Health health;
     public float speed;
     public bool isFacingRight;
-    public GameObject deathScreen;
+    public float delayInSeconds = 2f;
 
     void Update()
     {
@@ -30,6 +31,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        // Wait for the specified delay.
+        
+        yield return new WaitForSeconds(delay);
+
+        Application.Quit();
+
+        // If we're running in the editor
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Stop playing the scene in the editor
+        #endif
+
+       
+    }
+
     void FixedUpdate()
     {
         if (health.IsAlive())
@@ -37,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer();
         } else {
 
-            Instantiate(deathScreen);
+        StartCoroutine(LoadSceneAfterDelay(delayInSeconds));
+
         }
     }
 

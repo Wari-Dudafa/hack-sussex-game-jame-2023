@@ -42,7 +42,6 @@ public class HUDControls : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -54,7 +53,7 @@ public class HUDControls : MonoBehaviour
         keysLeftHUD = GameObject.FindWithTag("KeysLeft").GetComponent<Text>();
         killCount = 0;
         killsToNextLevel = 20;
-        sceneNum = 1;
+        sceneNum = 3;
 
         keysDict = new Dictionary<string, KeyCode>();
     }
@@ -65,6 +64,14 @@ public class HUDControls : MonoBehaviour
         if (killCount >= killsToNextLevel)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNum);
+        } else if (sceneNum >= 7) {
+            
+        Application.Quit();
+
+        // If we're running in the editor
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Stop playing the scene in the editor
+        #endif
         }
     }
 
