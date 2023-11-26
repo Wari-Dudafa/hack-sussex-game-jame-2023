@@ -9,11 +9,11 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private HUDControls scoreManager;
 
-
     private Vector2 targetPos;
     private Vector2 direction;
     public SpriteRenderer spriteRenderer;
     public Health health;
+    public bool flip = false;
 
     public int score;
 
