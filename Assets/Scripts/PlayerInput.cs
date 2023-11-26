@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-
     public HUDControls HUDControlsScript;
     private List<KeyCode> availableKeys;
     public Dictionary<KeyCode, int> currentKeys;
@@ -66,50 +65,50 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(up))
         {
-            up = HandleInput(up);
+            up = HandleInput("up", up);
             tempVector = new Vector2(tempVector.x, 1);
         }
         if (Input.GetKeyUp(up))
         {
-            up = HandleInput(up);
+            up = HandleInput("up", up);
             tempVector = new Vector2(tempVector.x, 0);
         }
 
         if (Input.GetKey(down))
         {
-            down = HandleInput(down);
+            down = HandleInput("down", down);
             tempVector = new Vector2(tempVector.x, -1);
         }
         if (Input.GetKeyUp(down))
         {
-            down = HandleInput(down);
+            down = HandleInput("down", down);
             tempVector = new Vector2(tempVector.x, 0);
         }
 
         if (Input.GetKey(left))
         {
-            left = HandleInput(left);
+            left = HandleInput("left", left);
             tempVector = new Vector2(-1, tempVector.y);
         }
         if (Input.GetKeyUp(left))
         {
-            left = HandleInput(left);
+            left = HandleInput("left", left);
             tempVector = new Vector2(0, tempVector.y);
         }
         if (Input.GetKey(right))
         {
-            right = HandleInput(right);
+            right = HandleInput("right", right);
             tempVector = new Vector2(1, tempVector.y);
         }
         if (Input.GetKeyUp(right))
         {
-            right = HandleInput(right);
+            right = HandleInput("right", right);
             tempVector = new Vector2(0, tempVector.y);
         }
 
         if (Input.GetKey(fire))
         {
-            fire = HandleInput(fire);
+            fire = HandleInput("fire", fire);
         }
 
         this.playerDirection = tempVector;
@@ -120,33 +119,31 @@ public class PlayerInput : MonoBehaviour
         return this.playerDirection;
     }
 
-    KeyCode HandleInput(KeyCode key)
+    KeyCode HandleInput(string keyName, KeyCode key)
     {
+        if (key != KeyCode.None) {
         // key pressed
         currentKeys[key] += 1;
 
-        if (currentKeys[key] > lengthOfTimeUsed)
-        {
-            currentKeys.Remove(key);
-            keysLeft -= 1;
-
-            if (keysLeft <= 0)
+            if (currentKeys[key] > lengthOfTimeUsed)
             {
-                // No more keys available
-                key = KeyCode.None;
-            }
-            else
-            {
-                key = availableKeys.ToArray<KeyCode>()[UnityEngine.Random.Range(0, keysLeft - 1)];
-                availableKeys.Remove(key);
+                currentKeys.Remove(key);
+                keysLeft -= 1;
 
-                // New key
-                currentKeys.Add(key, 0);
+                if (keysLeft <= 0)
+                {
+                    // No more keys available
+                    key = KeyCode.None;
+                }
+                else
+                {
+                    key = availableKeys.ToArray<KeyCode>()[UnityEngine.Random.Range(0, keysLeft - 1)];
+                    availableKeys.Remove(key);
 
-                HUDControlsScript.updateKeys();
-                Debug.Log("New key = " + key);
-
-
+                    // New key
+                    currentKeys.Add(key, 0);
+                    HUDControlsScript.keyUpdated(keyName);
+                }
             }
         }
         return key;
