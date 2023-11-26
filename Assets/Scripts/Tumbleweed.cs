@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class Tumbleweed : MonoBehaviour
 {
+    public float anglesPerSecond;
+
     void Start()
     {
-        // Move tumbleweed to the left or right
+        anglesPerSecond = Random.Range(-135, 135);
+    }
+
+    void Update()
+    {
+        Vector3 rotation = transform.localEulerAngles;
+        rotation.z += Time.deltaTime * anglesPerSecond;
+        transform.localEulerAngles = rotation;
     }
 }
