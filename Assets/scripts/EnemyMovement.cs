@@ -7,19 +7,20 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public Transform player;
     private Rigidbody2D rb;
-    private ScoreManager scoreManager;
+    private HUDControls scoreManager;
 
     private Vector2 targetPos;
     private Vector2 direction;
     public SpriteRenderer spriteRenderer;
     public Health health;
+    public bool flip = false;
 
     public int score;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
-        scoreManager = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreManager>();
+        scoreManager = GameObject.FindWithTag("HUD").GetComponent<HUDControls>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -48,6 +49,13 @@ public class EnemyMovement : MonoBehaviour
 
     void FlipToPlayer()
     {
-        spriteRenderer.flipX = player.position.x > transform.position.x;
+        if (!flip)
+        {
+            spriteRenderer.flipX = player.position.x > transform.position.x;
+        }
+        else
+        {
+            spriteRenderer.flipX = !(player.position.x > transform.position.x);
+        }
     }
 }

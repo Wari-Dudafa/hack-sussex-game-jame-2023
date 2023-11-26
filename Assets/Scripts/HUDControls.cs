@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HUDControls : MonoBehaviour
 {
+    public static HUDControls Instance;
+
     public Text up,
         down,
         left,
@@ -19,28 +21,53 @@ public class HUDControls : MonoBehaviour
         animatorUP,
         animatorDOWN;
     public PlayerInput inputScript;
-
     private Dictionary<string, KeyCode> keysDict;
+
+    private int score;
+    private int keysLeft;
+    public Text scoreboard;
+    public Text keysLeftHUD;
+    public int killCount;
+    public int killsToNextLevel;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Instance.killCount = 0;
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
 
         GameObject player = GameObject.FindWithTag("Player");
         inputScript = player.GetComponent<PlayerInput>();
+        keysLeftHUD = GameObject.FindWithTag("KeysLeft").GetComponent<Text>();
+        killCount = 0;
+        killsToNextLevel = 20;
 
         keysDict = new Dictionary<string, KeyCode>();
-        updateKeys();
     }
 
     void Update()
     {
         updateKeys();
+        if (killCount >= killsToNextLevel)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        }
     }
-
 
     void updateKeys()
     {
         keysDict = inputScript.getKeyBinds();
+        keysLeft = inputScript.getKeysLeft();
         displayKeys();
     }
 
@@ -54,6 +81,8 @@ public class HUDControls : MonoBehaviour
         down2.text = keysDict["down"].ToString();
         left2.text = keysDict["left"].ToString();
         right2.text = keysDict["right"].ToString();
+
+        keysLeftHUD.text = keysLeft.ToString();
     }
 
     public void keyUpdated(string keyName)
@@ -86,5 +115,10 @@ public class HUDControls : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void addScore(int points)
+    {
+        killCount += 1;
     }
 }
