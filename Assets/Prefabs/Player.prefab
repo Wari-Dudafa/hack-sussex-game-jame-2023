@@ -891,6 +891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1239731064656001792, guid: 934f92eaa16701a44aba713d1f567d78, type: 3}
   gun: {fileID: 3963095556436801865}
+  playerHealth: {fileID: 8102221882099155754}
 --- !u!1 &8660373155284192699
 GameObject:
   m_ObjectHideFlags: 0
