@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2377150409786586066, guid: 7064a846aa14f3b45910b50ab3dc9295, type: 3}
+      propertyPath: HUDControlsScript
+      value: 
+      objectReference: {fileID: 2115091266}
     - target: {fileID: 9004477453816135082, guid: 7064a846aa14f3b45910b50ab3dc9295, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -640,7 +644,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1176273371}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 4
@@ -867,6 +871,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393a404da431da549b2dcc721884e3b4, type: 3}
+--- !u!4 &1176273371 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9004477453816135082, guid: 7064a846aa14f3b45910b50ab3dc9295, type: 3}
+  m_PrefabInstance: {fileID: 167423848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1194654613
 GameObject:
   m_ObjectHideFlags: 0
@@ -35533,6 +35542,17 @@ Transform:
   - {fileID: 1492775609}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115091266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8437233458042096492, guid: 393a404da431da549b2dcc721884e3b4, type: 3}
+  m_PrefabInstance: {fileID: 903382804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ea4e5f5c6320440899429b488a5988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2136921944
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Health health;
     public float speed;
     public bool isFacingRight;
+    public GameObject deathScreen;
 
     void Update()
     {
@@ -34,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
         if (health.IsAlive())
         {
             MovePlayer();
+        } else {
+
+            Instantiate(deathScreen);
         }
     }
 
