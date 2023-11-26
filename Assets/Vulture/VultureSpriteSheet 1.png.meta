@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c66fa004d4c2c3545be245c7063523de
+guid: aae7f82249edefd4b80337400415c8db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VultureSpriteSheet_0
+      name: VultureSpriteSheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550fe602b1fcb2e47a309d5cf66f102b
-      internalID: -1944205490
+      spriteID: d09e9bd0715d67e4490c0cdf43ab0193
+      internalID: 1742006846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VultureSpriteSheet_1
+      name: VultureSpriteSheet 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47a93b6751755c43a139827a1eedca2
-      internalID: 1442128300
+      spriteID: a17d720cf49c11a4c916ff1122284226
+      internalID: -19272317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VultureSpriteSheet_2
+      name: VultureSpriteSheet 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -205,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cddf34ae0d1d354a8e2688417f9a854
-      internalID: 52096445
+      spriteID: 5e5f7224e56c3b340a97c22104edc852
+      internalID: -75385353
       vertices: []
       indices: 
       edges: []
@@ -222,9 +222,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      VultureSpriteSheet_0: -1944205490
-      VultureSpriteSheet_1: 1442128300
-      VultureSpriteSheet_2: 52096445
+      VultureSpriteSheet 1_0: 1742006846
+      VultureSpriteSheet 1_1: -19272317
+      VultureSpriteSheet 1_2: -75385353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
