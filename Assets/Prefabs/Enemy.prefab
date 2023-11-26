@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  enemyShotDamage: 10
+  enemyShotDamage: 5
   playerHealth: {fileID: 0}
   enemyHealth: {fileID: 7481716982777447978}
 --- !u!114 &7481716982777447978

@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 0.5f);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
         {
