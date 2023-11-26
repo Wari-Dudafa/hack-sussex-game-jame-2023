@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     public bool alive;
     public Slider healthBar;
     public GameObject healthBarGameObject;
+    public AudioSource hit;
+    public AudioSource death;
 
     void Start()
     {
@@ -27,12 +29,22 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (hit) {
+            hit.Play();
+        }
+       
 
         if (currentHealth < 0)
         {
             currentHealth = 0;
             alive = false;
             UpdateHealthBar();
+
+            if (death) {
+
+                death.Play();
+            }
+          
         }
     }
 
