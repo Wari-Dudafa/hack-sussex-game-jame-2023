@@ -639,6 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476598556}
   - component: {fileID: 476598555}
+  - component: {fileID: 476598557}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -701,6 +702,19 @@ Transform:
   - {fileID: 103497519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &476598557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476598554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa7d909ca35b6b4fb023ceb77cad271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 476598555}
 --- !u!1001 &534289222
 PrefabInstance:
   m_ObjectHideFlags: 0
