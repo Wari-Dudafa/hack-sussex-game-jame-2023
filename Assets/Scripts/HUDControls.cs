@@ -49,8 +49,6 @@ public class HUDControls : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         inputScript = player.GetComponent<PlayerInput>();
         keysLeftHUD = GameObject.FindWithTag("KeysLeft").GetComponent<Text>();
-        scoreboard = GameObject.FindWithTag("Scoreboard").GetComponent<Text>();
-        score = 0;
         killCount = 0;
         killsToNextLevel = 20;
 
@@ -60,7 +58,6 @@ public class HUDControls : MonoBehaviour
     void Update()
     {
         updateKeys();
-        scoreboard.text = score.ToString();
         if (killCount >= killsToNextLevel)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
@@ -122,7 +119,6 @@ public class HUDControls : MonoBehaviour
 
     public void addScore(int points)
     {
-        score += points;
         killCount += 1;
     }
 }
